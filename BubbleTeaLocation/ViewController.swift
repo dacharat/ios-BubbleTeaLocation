@@ -24,29 +24,54 @@ class ViewController: UIViewController {
         let marker = GMSMarker(position: CLLocationCoordinate2DMake(13.7597823, 100.5349915))
 
         marker.map = mapView
+        mapView.delegate = self
     }
     
     @IBAction func findAction(_ sender: Any) {
         Alamofire.request("https://api.foursquare.com/v2/venues/search?client_id=FXNO4CX1NPSWIBPD4UCUKZ4D0Y5E24PT2TZFNPV3LBV1VKZX&client_secret=YTGIDBAE4HODA0MS1VR1THKN5YEYINNCJ1DP225TNKY0E2DM&v=20180323&limit=10&ll=\(locationManager.location?.coordinate.latitude ?? 0.0),\(locationManager.location?.coordinate.longitude ?? 0.0)&query=bubbletea").responseJSON(completionHandler: {res in
-            guard let json = res.result.value as? [String: Any] else {
+            
+            
+            guard let data = res.data else {
                 return
             }
+            let responseData = try? JSONDecoder().decode(JsonResponse.self, from: data)
             
-            guard let response = json["response"] as? [String: Any] else {
-                return
-            }
+            let venues = responseData?.response.venues
             
-            guard let venues = response["venues"] as? [[String: Any]] else {
-                return
-            }
-            
-            venues.forEach{venue in
-                let place = Place(venue: venue)
-                let marker = GMSMarker(position: place.location)
+            venues?.forEach{venue in
+                let marker = GMSMarker(position: CLLocationCoordinate2DMake(venue.location?.lat ?? 0.0, venue.location?.lng ?? 0.0))
                 marker.map = self.mapView
-                marker.title = place.name
+                marker.title = venue.name
             }
+        
+            
+//            guard let json = res.result.value as? [String: Any] else {
+//                return
+//            }
+//
+//            guard let response = json["response"] as? [String: Any] else {
+//                return
+//            }
+//
+//            guard let venues = response["venues"] as? [[String: Any]] else {
+//                return
+//            }
+//
+//            venues.forEach{venue in
+//                let place = Place(venue: venue)
+//                let marker = GMSMarker(position: place.location)
+//                marker.map = self.mapView
+//                marker.title = place.name
+//            }
         })
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "showDetail" {
+            let vc = segue.destination as? VenueDetailViewController
+            let name = sender as? String
+            vc?.name = name
+        }
     }
     
 }
@@ -71,5 +96,14 @@ extension ViewController: CLLocationManagerDelegate {
         print(location.coordinate.longitude)
         
         mapView.camera = GMSCameraPosition(latitude: location.coordinate.latitude, longitude: location.coordinate.longitude, zoom: 15)
+    }
+}
+
+extension ViewController: GMSMapViewDelegate {
+    func mapView(_ mapView: GMSMapView, didTap marker: GMSMarker) -> Bool {
+        
+        performSegue(withIdentifier: "showDetail", sender: marker.title)
+        
+        return true
     }
 }

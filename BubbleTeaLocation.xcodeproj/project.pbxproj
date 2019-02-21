@@ -13,6 +13,14 @@
 		04AA536B2215424900BCA9C6 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 04AA536A2215424900BCA9C6 /* Assets.xcassets */; };
 		04AA536E2215424900BCA9C6 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 04AA536C2215424900BCA9C6 /* LaunchScreen.storyboard */; };
 		04AA537622155ED800BCA9C6 /* Place.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04AA537522155ED800BCA9C6 /* Place.swift */; };
+		04AA5379221E80CC00BCA9C6 /* JsonResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04AA5378221E80CC00BCA9C6 /* JsonResponse.swift */; };
+		04AA537B221E814900BCA9C6 /* VenuesResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04AA537A221E814900BCA9C6 /* VenuesResponse.swift */; };
+		04AA537D221E818100BCA9C6 /* Venues.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04AA537C221E818100BCA9C6 /* Venues.swift */; };
+		04AA537F221E853400BCA9C6 /* Location.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04AA537E221E853400BCA9C6 /* Location.swift */; };
+		04AA5381221E85E400BCA9C6 /* LabelLatLng.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04AA5380221E85E400BCA9C6 /* LabelLatLng.swift */; };
+		04AA5383221E86F000BCA9C6 /* Category.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04AA5382221E86F000BCA9C6 /* Category.swift */; };
+		04AA5385221E895700BCA9C6 /* Stat.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04AA5384221E895700BCA9C6 /* Stat.swift */; };
+		04AA5387221E914000BCA9C6 /* VenueDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04AA5386221E914000BCA9C6 /* VenueDetailViewController.swift */; };
 		D710AEC2B5CB436AAE41C991 /* Pods_BubbleTeaLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CC94D42EE13D127AD4C09512 /* Pods_BubbleTeaLocation.framework */; };
 /* End PBXBuildFile section */
 
@@ -25,6 +33,14 @@
 		04AA536D2215424900BCA9C6 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		04AA536F2215424900BCA9C6 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		04AA537522155ED800BCA9C6 /* Place.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Place.swift; sourceTree = "<group>"; };
+		04AA5378221E80CC00BCA9C6 /* JsonResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JsonResponse.swift; sourceTree = "<group>"; };
+		04AA537A221E814900BCA9C6 /* VenuesResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VenuesResponse.swift; sourceTree = "<group>"; };
+		04AA537C221E818100BCA9C6 /* Venues.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Venues.swift; sourceTree = "<group>"; };
+		04AA537E221E853400BCA9C6 /* Location.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Location.swift; sourceTree = "<group>"; };
+		04AA5380221E85E400BCA9C6 /* LabelLatLng.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LabelLatLng.swift; sourceTree = "<group>"; };
+		04AA5382221E86F000BCA9C6 /* Category.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Category.swift; sourceTree = "<group>"; };
+		04AA5384221E895700BCA9C6 /* Stat.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Stat.swift; sourceTree = "<group>"; };
+		04AA5386221E914000BCA9C6 /* VenueDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VenueDetailViewController.swift; sourceTree = "<group>"; };
 		42418BD2B69772E7F4705812 /* Pods-BubbleTeaLocation.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BubbleTeaLocation.debug.xcconfig"; path = "Target Support Files/Pods-BubbleTeaLocation/Pods-BubbleTeaLocation.debug.xcconfig"; sourceTree = "<group>"; };
 		CC94D42EE13D127AD4C09512 /* Pods_BubbleTeaLocation.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_BubbleTeaLocation.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		F0A6B9C3F3AC9860F970F0F9 /* Pods-BubbleTeaLocation.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BubbleTeaLocation.release.xcconfig"; path = "Target Support Files/Pods-BubbleTeaLocation/Pods-BubbleTeaLocation.release.xcconfig"; sourceTree = "<group>"; };
@@ -63,6 +79,7 @@
 		04AA53622215424600BCA9C6 /* BubbleTeaLocation */ = {
 			isa = PBXGroup;
 			children = (
+				04AA5377221E80B300BCA9C6 /* Models */,
 				04AA53632215424600BCA9C6 /* AppDelegate.swift */,
 				04AA53652215424600BCA9C6 /* ViewController.swift */,
 				04AA53672215424600BCA9C6 /* Main.storyboard */,
@@ -70,8 +87,23 @@
 				04AA536C2215424900BCA9C6 /* LaunchScreen.storyboard */,
 				04AA536F2215424900BCA9C6 /* Info.plist */,
 				04AA537522155ED800BCA9C6 /* Place.swift */,
+				04AA5386221E914000BCA9C6 /* VenueDetailViewController.swift */,
 			);
 			path = BubbleTeaLocation;
+			sourceTree = "<group>";
+		};
+		04AA5377221E80B300BCA9C6 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				04AA5378221E80CC00BCA9C6 /* JsonResponse.swift */,
+				04AA537A221E814900BCA9C6 /* VenuesResponse.swift */,
+				04AA537C221E818100BCA9C6 /* Venues.swift */,
+				04AA537E221E853400BCA9C6 /* Location.swift */,
+				04AA5380221E85E400BCA9C6 /* LabelLatLng.swift */,
+				04AA5382221E86F000BCA9C6 /* Category.swift */,
+				04AA5384221E895700BCA9C6 /* Stat.swift */,
+			);
+			path = Models;
 			sourceTree = "<group>";
 		};
 		1908CDF8F930988C6EACC4ED /* Frameworks */ = {
@@ -171,12 +203,14 @@
 			inputPaths = (
 				"${PODS_ROOT}/Target Support Files/Pods-BubbleTeaLocation/Pods-BubbleTeaLocation-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
+				"${BUILT_PRODUCTS_DIR}/AlamofireImage/AlamofireImage.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputFileListPaths = (
 			);
 			outputPaths = (
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/AlamofireImage.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -234,9 +268,17 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				04AA5387221E914000BCA9C6 /* VenueDetailViewController.swift in Sources */,
 				04AA537622155ED800BCA9C6 /* Place.swift in Sources */,
+				04AA537D221E818100BCA9C6 /* Venues.swift in Sources */,
+				04AA537B221E814900BCA9C6 /* VenuesResponse.swift in Sources */,
+				04AA5385221E895700BCA9C6 /* Stat.swift in Sources */,
 				04AA53662215424600BCA9C6 /* ViewController.swift in Sources */,
+				04AA5379221E80CC00BCA9C6 /* JsonResponse.swift in Sources */,
+				04AA5383221E86F000BCA9C6 /* Category.swift in Sources */,
 				04AA53642215424600BCA9C6 /* AppDelegate.swift in Sources */,
+				04AA5381221E85E400BCA9C6 /* LabelLatLng.swift in Sources */,
+				04AA537F221E853400BCA9C6 /* Location.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

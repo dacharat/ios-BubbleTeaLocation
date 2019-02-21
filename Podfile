@@ -7,6 +7,7 @@ target 'BubbleTeaLocation' do
 
   pod 'GoogleMaps'
   pod 'Alamofire'
+  pod 'AlamofireImage', '~> 3.5'
   # Pods for BubbleTeaLocation
 
 end

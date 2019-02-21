@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="J73-JN-Man">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -10,6 +10,22 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
+        <!--Navigation Controller-->
+        <scene sceneID="dzw-uX-6Ol">
+            <objects>
+                <navigationController id="J73-JN-Man" sceneMemberID="viewController">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="X57-gz-G8f">
+                        <rect key="frame" x="0.0" y="20" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="BYZ-38-t0r" kind="relationship" relationship="rootViewController" id="xxf-IY-mzA"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="iCl-Sh-Fhp" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-911" y="27"/>
+        </scene>
         <!--View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
@@ -19,11 +35,11 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="46z-de-xEc" customClass="GMSMapView">
-                                <rect key="frame" x="0.0" y="20" width="375" height="647"/>
+                                <rect key="frame" x="0.0" y="64" width="375" height="603"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             </view>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ah4-LX-HO6">
-                                <rect key="frame" x="10" y="30" width="110" height="30"/>
+                                <rect key="frame" x="10" y="74" width="110" height="30"/>
                                 <state key="normal" title="Find Bubble Tea"/>
                                 <connections>
                                     <action selector="findAction:" destination="BYZ-38-t0r" eventType="touchUpInside" id="MP1-3I-Ozh"/>
@@ -41,13 +57,55 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
+                    <navigationItem key="navigationItem" id="Jd1-2j-cSt"/>
                     <connections>
                         <outlet property="mapView" destination="46z-de-xEc" id="mB8-Dx-Fg9"/>
+                        <segue destination="BEY-RI-hnL" kind="show" identifier="showDetail" id="zA3-UD-ClK"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="53.600000000000001" y="27.436281859070466"/>
+            <point key="canvasLocation" x="-41" y="27"/>
+        </scene>
+        <!--Venue Detail View Controller-->
+        <scene sceneID="xO5-Rb-Nqb">
+            <objects>
+                <viewController id="BEY-RI-hnL" customClass="VenueDetailViewController" customModule="BubbleTeaLocation" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="FdX-Gs-2wr">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="B4o-k1-a8p">
+                                <rect key="frame" x="0.0" y="64" width="375" height="281.5"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="B4o-k1-a8p" secondAttribute="height" multiplier="4:3" id="YQ3-Tf-8vE"/>
+                                </constraints>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DFW-Eg-d6V">
+                                <rect key="frame" x="15" y="361.5" width="42" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="DFW-Eg-d6V" firstAttribute="top" secondItem="B4o-k1-a8p" secondAttribute="bottom" constant="16" id="BYB-gV-K7P"/>
+                            <constraint firstItem="hQw-bF-ecg" firstAttribute="trailing" secondItem="B4o-k1-a8p" secondAttribute="trailing" id="PUO-Y8-vep"/>
+                            <constraint firstItem="DFW-Eg-d6V" firstAttribute="leading" secondItem="hQw-bF-ecg" secondAttribute="leading" constant="15" id="VRM-b8-J1V"/>
+                            <constraint firstItem="B4o-k1-a8p" firstAttribute="leading" secondItem="hQw-bF-ecg" secondAttribute="leading" id="eYg-ET-alq"/>
+                            <constraint firstItem="B4o-k1-a8p" firstAttribute="top" secondItem="hQw-bF-ecg" secondAttribute="top" id="fkI-tr-ig8"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="hQw-bF-ecg"/>
+                    </view>
+                    <connections>
+                        <outlet property="imageView" destination="B4o-k1-a8p" id="Lvs-d5-8ES"/>
+                        <outlet property="nameLabel" destination="DFW-Eg-d6V" id="w5t-0D-xY5"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="kgQ-mH-Pxg" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="791" y="27"/>
         </scene>
     </scenes>
 </document>
